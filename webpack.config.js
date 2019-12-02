@@ -10,7 +10,7 @@ const CopyPlugin = require('copy-webpack-plugin');
 module.exports = {
 
     // Path to your entry point. From this file Webpack will begin his work
-    entry: ['./src/index.js'],
+    entry: ['./src/index.js', './sass/index.scss'],
 
     // Path and filename of your result bundle.
     // Webpack will bundle all JavaScript into this file
@@ -35,6 +35,20 @@ module.exports = {
                         interpolate: true
                     }
                 }
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    {
+                        loader: 'file-loader',
+                        options: {
+                            name: 'css/index.css',
+                        }
+                    },
+                    {
+                        loader: 'sass-loader'
+                    }
+                ]
             }
         ]
     },
