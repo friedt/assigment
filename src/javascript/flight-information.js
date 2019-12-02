@@ -69,7 +69,7 @@ const showFlightData = (filteredData) => {
                             <dt>Flightnumber</dt><dd>${item.flightNumber}</dd> 
                             <dt>Expected time</dt><dd>${item.expectedTime}</dd>
                             <dt>Original time</dt><dd>${item.originalTime}</dd>
-                            <dt>url</dt><dd>${item.url}</dd>
+                            <dt>url</dt><dd><a href="${item.url}">${item.url}</a></dd>
                               <dt>Score</dt><dd>${item.score}</dd>
                          </dl>
                       </div>
