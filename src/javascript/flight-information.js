@@ -90,9 +90,12 @@ const bindFlightInformationInput = () => {
 };
 
 export const init = () => {
-
+    //bind the html output container
     dataOutputElement = document.querySelector('.js-flightinformation-output');
+    // bind the input field
     bindFlightInformationInput();
+
+    // load the data only once
     getFlightInformation().then(data => {
         storedData = JSON.parse(data.response);
         flightsInfoArray = storedData.flights;
