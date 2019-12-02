@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Schiphol assigment</title>
+    <link rel="stylesheet" href="/css/static.css">
+    <link rel="stylesheet" href="global.css">
+</head>
+<body>
+
+<div class="content">
+
+    <!--start header-->
+    ${require('./header.html')}
+    <!--end header-->
+
+
+        <div class="rw-ui-container">
+                <div class="rw-ui-inner">
+                <form>
+
+                    <!--start flight input-->
+                    <div class="rw-input"
+                         data-component="rw-input-element" data-realtime="true">
+                        <label for="flight-information-input" class="rw-input-label">Enter flight information</label>
+
+                        <input id="flight-information-input"
+                               class="rw-input-text js-flightinformation-input"
+                               data-input="true"
+                               type="text"
+                               placeholder="For example: KL1001, KLM or London"
+                        />
+                    </div>
+                    <!--  end flight input-->
+
+                </form>
+                </div>
+        </div>
+
+        <!-- start flight info output-->
+        <div class="rw-canvas">
+            <div class="rw-ui-container">
+                <div class="js-flightinformation-output">
+                </div>
+            </div>
+
+        </div>
+        <!--end flight info output-->
+
+
+
+
+    <!--footer-->
+    ${require('./footer.html')}
+    <!--end footer-->
+</div>
+
+
+</body>
+</html>
