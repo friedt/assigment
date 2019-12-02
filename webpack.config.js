@@ -60,9 +60,10 @@ module.exports = {
     mode: 'development',
 
     // plugins
-    plugins: [new HtmlWebpackPlugin({
-        title: 'Schiphol',
-        template: './src/html/index.html'
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Schiphol',
+            template: './src/html/index.html'
         }),
         new CopyPlugin([
             {
