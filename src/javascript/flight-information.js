@@ -76,8 +76,8 @@ const showFlightData = (filteredData) => {
 const setInputFlightInformation = (e) => {
     let target = e.target;
     let value = target.value.toLowerCase();
-    let inputLenght = target.value.length;
-    if (inputLenght >= 3) {
+    let inputLength = target.value.length;
+    if (inputLength >= 3) {
 
         let filteredData = filterFlightInformation(value);
         showFlightData(filteredData);
