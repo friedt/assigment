@@ -6,7 +6,6 @@
   "scripts": {
     "test": "jest",
     "build": "webpack --config webpack.config.js",
-    "nodesass": "node-sass sass/index.scss > dist/global.css",
     "serve": "http-server dist --port 8081"
   },
   "author": "",
