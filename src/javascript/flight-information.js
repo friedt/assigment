@@ -23,10 +23,10 @@ const getFlightInformation = () => {
     xhr.send();
 
     // This will be called after the response is received
-    return new Promise(function (resolve, reject) {
+    return new Promise( (resolve, reject) => {
         console.log('loading indicator....');
-        xhr.onload = function () {
-            if (xhr.status != 200) { // analyze HTTP status of the response
+        xhr.onload = () => {
+            if (xhr.status !== 200) { // analyze HTTP status of the response
                 // reject
                 reject({
                     status: xhr.status,
