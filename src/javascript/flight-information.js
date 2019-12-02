@@ -25,14 +25,13 @@ const getFlightInformation = () => {
     return new Promise(function (resolve, reject) {
         xhr.onload = function () {
             if (xhr.status != 200) { // analyze HTTP status of the response
-                console.log(`Error ${xhr.status}: ${xhr.statusText}`); // e.g. 404: Not Found
+                // reject
                 reject({
                     status: xhr.status,
                     statusText: xhr.statusText
                 });
             } else { // show the result
-                console.log(`Done, got ${xhr.response.length} bytes`); // responseText is the server
-                //console.log(xhr.response);
+                // resolve
                 resolve(xhr);
             }
         };
@@ -42,6 +41,11 @@ const getFlightInformation = () => {
 const filterFlightData = (filteredData) => {
     let flights = [];
     let html = '';
+
+    if (filteredData.length === 0){
+        dataOutputElement.innerHTML = 'No data found';
+        return;
+    }
 
     for (let item of filteredData) {
         console.log(item);
@@ -66,13 +70,14 @@ const filterFlightData = (filteredData) => {
 
 const showFlightInformation = (e) => {
     let target = e.target;
+    let value = target.value.toLowerCase();
     let inputLenght = target.value.length;
     if (inputLenght >= 3) {
         console.log(flightsInfoArray.length);
 
         let filteredData = flightsInfoArray.filter(item => {
             let destination = item.airport.toLowerCase();
-            return destination.indexOf(target.value) !== -1;
+            return destination.indexOf(value) !== -1;
         });
 
         filterFlightData(filteredData);
