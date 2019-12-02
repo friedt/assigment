@@ -1,5 +1,3 @@
-
-
 /*
 *
 * When the user enters at least three characters into this input field, you should display all flight information from the flights.json file where the destination matches the entered input. Do this by using vanilla Javascript.
@@ -46,7 +44,7 @@ const showFlightData = (filteredData) => {
     let flights = [];
     let html = '';
 
-    if (filteredData.length === 0){
+    if (filteredData.length === 0) {
         dataOutputElement.innerHTML = 'No data found';
         return;
     }
@@ -66,8 +64,8 @@ const showFlightData = (filteredData) => {
                       </div>
                      </div>`;
         flights.push(html);
-
     }
+    // inject into the DOM once
     dataOutputElement.innerHTML = flights;
 }
 
@@ -75,30 +73,36 @@ const showFlightData = (filteredData) => {
 * Filter the data after user input
 * */
 
-const showFlightInformation = (e) => {
+const setInputFlightInformation = (e) => {
     let target = e.target;
     let value = target.value.toLowerCase();
     let inputLenght = target.value.length;
     if (inputLenght >= 3) {
-        console.log(flightsInfoArray.length);
-        // filter the flightsInfoArray array
-        let filteredData = flightsInfoArray.filter(item => {
-            let destination = item.airport.toLowerCase();
-            return destination.indexOf(value) !== -1;
-        });
 
+        let filteredData = filterFlightInformation(value);
         showFlightData(filteredData);
     }
 };
 
+const filterFlightInformation = (value) => {
+    console.log(flightsInfoArray.length);
+    // filter the flightsInfoArray array
+    return flightsInfoArray.filter(item => {
+        let destination = item.airport.toLowerCase();
+        return destination.indexOf(value) !== -1;
+    });
+};
+
+
 const bindFlightInformationInput = () => {
     let inputElement = document.querySelector('.js-flightinformation-input');
-    inputElement.addEventListener('input', showFlightInformation);
+    inputElement.addEventListener('input', setInputFlightInformation);
 };
 
 export const init = () => {
     //bind the html output container
     dataOutputElement = document.querySelector('.js-flightinformation-output');
+
     // bind the input field
     bindFlightInformationInput();
 
