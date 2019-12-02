@@ -9,6 +9,7 @@
 let storedData;
 let flightsInfoArray;
 let dataOutputElement;
+let errorElement;
 
 
 const getFlightInformation = () => {
@@ -23,6 +24,7 @@ const getFlightInformation = () => {
 
     // This will be called after the response is received
     return new Promise(function (resolve, reject) {
+        console.log('loading indicator....');
         xhr.onload = function () {
             if (xhr.status != 200) { // analyze HTTP status of the response
                 // reject
@@ -30,12 +32,21 @@ const getFlightInformation = () => {
                     status: xhr.status,
                     statusText: xhr.statusText
                 });
+                console.log('hide loading indicator....');
+                showHideError(true);
             } else { // show the result
                 // resolve
+                console.log('hide loading indicator....');
+                showHideError(false);
                 resolve(xhr);
             }
         };
     });
+};
+
+const showHideError = (state) => {
+    (state === true) ? errorElement.classList.remove('visually-hidden') : errorElement.classList.add('visually-hidden');
+
 };
 
 // show the filtered data and inject in html container
@@ -102,6 +113,7 @@ const bindFlightInformationInput = () => {
 export const init = () => {
     //bind the html output container
     dataOutputElement = document.querySelector('.js-flightinformation-output');
+    errorElement = document.querySelector('.js-attention-message');
 
     // bind the input field
     bindFlightInformationInput();
