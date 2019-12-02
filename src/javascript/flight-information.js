@@ -38,7 +38,9 @@ const getFlightInformation = () => {
     });
 };
 
-const filterFlightData = (filteredData) => {
+// show the filtered data and inject in html container
+
+const showFlightData = (filteredData) => {
     let flights = [];
     let html = '';
 
@@ -48,7 +50,6 @@ const filterFlightData = (filteredData) => {
     }
 
     for (let item of filteredData) {
-        console.log(item);
         html = `<div class="rw-card">
                         <div class="rw-card__body">
                         <h3 class="rw-card__header">${item.airport}</h3>
@@ -68,19 +69,23 @@ const filterFlightData = (filteredData) => {
     dataOutputElement.innerHTML = flights;
 }
 
+/*
+* Filter the data after user input
+* */
+
 const showFlightInformation = (e) => {
     let target = e.target;
     let value = target.value.toLowerCase();
     let inputLenght = target.value.length;
     if (inputLenght >= 3) {
         console.log(flightsInfoArray.length);
-
+        // filter the flightsInfoArray array
         let filteredData = flightsInfoArray.filter(item => {
             let destination = item.airport.toLowerCase();
             return destination.indexOf(value) !== -1;
         });
 
-        filterFlightData(filteredData);
+        showFlightData(filteredData);
     }
 };
 
