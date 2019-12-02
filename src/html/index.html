@@ -16,57 +16,9 @@
     <!--end header-->
 
 
-
-        <div class="rw-ui-container">
-                <div class="rw-ui-inner">
-                <form>
-                    <h2 class="rw-heading-xl">Vind een vlucht</h2>
-
-                    <div class="rw-attention-bar__item js-attention-message visually-hidden" id="message-two">
-                        <h3 class="rw-attention-bar__title">
-                            <svg aria-hidden="true" class="rw-icon rw-icon--attention" width="48" height="48" viewBox="0 0 48 48"><path fill="currentcolor" d="M24 5a19 19 0 1019 19A19 19 0 0024 5zm0 32a2 2 0 112-2 2 2 0 01-2 2zm2-8h-4V11h4z"/></svg>
-                            This server request is throwing an error
-                        </h3>
-                        <div class="rw-attention-bar__body">
-                            <p class="rw-attention-bar__updated-at">
-                                Last update: <time datetime="2018-04-13T13:37+01:00">lorem ipsum</time>
-                            </p>
-                            <a href="#" class="rw-icon-link rw-attention-bar__link">
-                                <span class="rw-icon-link__text">Read more</span>
-                                <svg aria-hidden="true" class="rw-icon rw-icon--arrow-right" width="24" height="24" viewBox="0 0 24 24"><path fill="currentcolor" d="M12 6.3l-1.4 1.5 3.2 3.2H6v2h7.8l-3.2 3.2 1.4 1.5 5.7-5.7L12 6.3z"/></svg>
-                            </a>
-                        </div>
-                    </div>
-                    <!--start flight input-->
-                    <div class="rw-input"
-                         data-component="rw-input-element" data-realtime="true">
-                        <label for="flight-information-input" class="rw-input-label">Enter flight information</label>
-
-                        <input id="flight-information-input"
-                               class="rw-input-text js-flightinformation-input"
-                               data-input="true"
-                               type="text"
-                               placeholder="For example: KL1001, KLM or London"
-                        />
-                    </div>
-                    <!--  end flight input-->
-
-                </form>
-                </div>
-        </div>
-
-        <!-- start flight info output-->
-        <div class="rw-canvas">
-            <div class="rw-ui-container">
-
-                <div class="js-flightinformation-output">
-                </div>
-            </div>
-
-        </div>
-        <!--end flight info output-->
-
-
+    <!--start flight-information-->
+    ${require('./flight-information.html')}
+    <!--end flight-information-->
 
 
     <!--footer-->
