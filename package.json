@@ -6,7 +6,8 @@
   "scripts": {
     "test": "jest",
     "build": "webpack --config webpack.config.js",
-    "serve": "http-server dist --port 8081"
+    "serve": "http-server dist --port 8081",
+    "eslint": "eslint src/"
   },
   "author": "",
   "license": "ISC",
