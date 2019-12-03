@@ -11,6 +11,7 @@ let storedData;
 let flightsInfoArray;
 let dataOutputElement;
 let errorElement;
+let resultsFound;
 
 // create a promise for this request to get the flightInformation
 const getFlightInformation = () => {
@@ -59,8 +60,11 @@ const showFlightData = (filteredData) => {
     let html = '';
 
     if (filteredData.length === 0) {
+        resultsFound.innerHTML = '';
         dataOutputElement.innerHTML = 'No data found or enter at least 3 characters';
         return;
+    } else {
+        resultsFound.innerHTML = `We found ${filteredData.length} result(s)`;
     }
 
     for (let item of filteredData) {
@@ -120,9 +124,10 @@ const bindFlightInformationInput = () => {
 // initialize the flightInformation module
 
 export const init = () => {
-    //bind the html output container
+    //bind the html elements
     dataOutputElement = document.querySelector('.js-flightinformation-output');
     errorElement = document.querySelector('.js-attention-message');
+    resultsFound = document.getElementById('results-found');
 
     // bind the input field
     bindFlightInformationInput();
