@@ -59,7 +59,7 @@ const showFlightData = (filteredData) => {
     let html = '';
 
     if (filteredData.length === 0) {
-        dataOutputElement.innerHTML = 'No data found';
+        dataOutputElement.innerHTML = 'No data found or enter at least 3 characters';
         return;
     }
 
