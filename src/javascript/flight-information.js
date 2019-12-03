@@ -1,6 +1,7 @@
 /*
 *
 * When the user enters at least three characters into this input field, you should display all flight information from the flights.json file where the destination matches the entered input. Do this by using vanilla Javascript.
+* This should work in all browsers including IE 10+
 *
 * get request to flights.json
 *
@@ -11,7 +12,7 @@ let flightsInfoArray;
 let dataOutputElement;
 let errorElement;
 
-
+// create a promise for this request to get the flightInformation
 const getFlightInformation = () => {
 
     let xhr = new XMLHttpRequest();
@@ -22,12 +23,11 @@ const getFlightInformation = () => {
     xhr.open(method, url, async);
     xhr.send();
 
-    // This will be called after the response is received
     return new Promise( (resolve, reject) => {
         console.log('loading indicator....');
         xhr.onload = () => {
-            if (xhr.status !== 200) { // analyze HTTP status of the response
-                // reject
+            if (xhr.status !== 200) { // http status of the response
+                // rejected
                 reject({
                     status: xhr.status,
                     statusText: xhr.statusText
@@ -35,7 +35,7 @@ const getFlightInformation = () => {
                 console.log('hide loading indicator....');
                 showHideError(true);
             } else { // show the result
-                // resolve
+                // resolved
                 console.log('hide loading indicator....');
                 showHideError(false);
                 resolve(xhr);
@@ -43,7 +43,10 @@ const getFlightInformation = () => {
         };
     });
 };
-
+/*
+* show or hide the error element after response for the rest api call
+* at this moment not very dynamic, just with static data
+* */
 const showHideError = (state) => {
     (state === true) ? errorElement.classList.remove('visually-hidden') : errorElement.classList.add('visually-hidden');
 
@@ -95,6 +98,8 @@ const setInputFlightInformation = (e) => {
     }
 };
 
+// filter the flight information on input against destination(airport) value
+
 const filterFlightInformation = (value) => {
     console.log(flightsInfoArray.length);
     // filter the flightsInfoArray array
@@ -105,10 +110,14 @@ const filterFlightInformation = (value) => {
 };
 
 
+// bind the text input element and create an event handler oninput
+
 const bindFlightInformationInput = () => {
     let inputElement = document.querySelector('.js-flightinformation-input');
     inputElement.addEventListener('input', setInputFlightInformation);
 };
+
+// initialize the flightInformation module
 
 export const init = () => {
     //bind the html output container
@@ -122,7 +131,6 @@ export const init = () => {
     getFlightInformation().then(data => {
         storedData = JSON.parse(data.response);
         flightsInfoArray = storedData.flights;
-
     });
 
 };
