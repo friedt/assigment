@@ -85,7 +85,7 @@ const showFlightData = (filteredData) => {
     }
     // inject into the DOM once
     dataOutputElement.innerHTML = flights;
-}
+};
 
 /*
 * Filter the data after user input
