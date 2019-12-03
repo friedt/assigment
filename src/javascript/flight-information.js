@@ -3,7 +3,7 @@
 * When the user enters at least three characters into this input field, you should display all flight information from the flights.json file where the destination matches the entered input. Do this by using vanilla Javascript.
 * This should work in all browsers including IE 10+
 *
-* get request to flights.json
+* get request to the flights.json
 *
 * */
 
