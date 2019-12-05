@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "build": "webpack --config webpack.config.js",
+    "build": "npm run eslint && webpack --config webpack.config.js",
     "watch": "webpack --watch",
     "serve": "npm run build && http-server dist --port 8081",
     "eslint": "eslint src/"

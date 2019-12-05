@@ -1,6 +1,63 @@
-# Assignment
 
-The assignment as described below is now fullfilled by me.
+
+# Documentation after fullfilled assignment
+
+# Installation 
+
+```shell
+$ npm install
+$ npm run serve
+$ npm run build
+$ npm run watch
+```
+
+<ul>
+<li>Run 'npm install' > 
+This will install the dependencies first </li> 
+<li>'npm run serve' will build the project and startup a static server
+which listens to http://localhost:8081/</li>
+<li>'npm run build' will run eslint first and will build the project using Webpack and creates a 'dist' folder with all the built files which is the root folder of localhost</li>
+
+<li>'npm run watch' will watch the project using webpack after changing files </li>
+</ul>
+
+# Configuration
+
+### Webpack
+This project uses Webpack as a buildtool which is configured in webpack.config.js. 
+There are 3 loaders configured which handle the html, scss and js files
+To get more information about the configuration options, see: <a href="https://webpack.js.org">https://webpack.js.org</a>
+
+Webpack Plugins used:
+- https://webpack.js.org/plugins/html-webpack-plugin/
+- https://webpack.js.org/plugins/copy-webpack-plugin/
+
+### Folder Structure
+
+- sass/  folder which containes all the scss files
+- src/ 
+These are the source files that can be changed. It consists of a:
+<ul>
+<li>'data' folder which containes the flights.json which is used to display flight information on the API endpoint</li>
+<li>'html' folder which contains the index.html which contains html partials which are bundled by 
+<a href="https://github.com/webpack-contrib/html-loader">html-loader</a>
+</li>
+<li>'static' folder which provides static css from Schiphol</li>
+
+</ul>
+
+### Config files
+
+- .babelrc : config babel settings
+- .eslintrc.js : config eslint settings
+- webpack.config.js : config webpack settings
+
+
+
+
+# Assignment (fullfilled by Pepijn Friederichs)
+
+The original assignment as described below is now fullfilled by me.
 
 Please create a page that contains an input field.
 When the user enters *at least* three characters into this input field,
