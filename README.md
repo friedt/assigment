@@ -1,5 +1,7 @@
 # Assignment
 
+The assignment as described below is now fullfilled by me.
+
 Please create a page that contains an input field.
 When the user enters *at least* three characters into this input field,
 you should display all flight information from the `flights.json` file where the destination matches the entered input.
