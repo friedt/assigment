@@ -68,7 +68,7 @@ const showFlightData = (filteredData) => {
 
     for (let item of filteredData) {
 
-        html += `<div class="rw-card">
+        html += `<div class="rw-card margin-bottom-one">
                         <div class="rw-card__body">
                         <h3 class="rw-card__header">${item.airport}</h3>
                         <dl class="rw-card__content">
