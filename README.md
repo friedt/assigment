@@ -21,6 +21,8 @@ which listens to http://localhost:8081/</li>
 <li>'npm run watch' will watch the project using webpack after changing files </li>
 </ul>
 
+TODO setup unit testing
+
 # Configuration
 
 ### Webpack
