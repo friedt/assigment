@@ -7,7 +7,7 @@
     "test": "jest",
     "build": "webpack --config webpack.config.js",
     "watch": "webpack --watch",
-    "serve": "http-server dist --port 8081",
+    "serve": "npm run build && http-server dist --port 8081",
     "eslint": "eslint src/"
   },
   "author": "",
