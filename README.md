@@ -24,8 +24,8 @@ which listens to http://localhost:8081/</li>
 # Configuration
 
 ### Webpack
-This project uses Webpack as a buildtool which is configured in webpack.config.js. 
-There are 3 loaders configured which handle the html, scss and js files
+This project uses Webpack as a buildtool which is configured in webpack.config.js. <br>
+There are 3 loaders configured which handle the html, scss and js files.<br>
 To get more information about the configuration options, see: <a href="https://webpack.js.org">https://webpack.js.org</a>
 
 Webpack Plugins used:
