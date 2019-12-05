@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "build": "npm run eslint && webpack --config webpack.config.js",
+    "build": "webpack --config webpack.config.js",
     "watch": "webpack --watch",
     "serve": "npm run build && http-server dist --port 8081",
     "eslint": "eslint src/"
@@ -20,6 +20,7 @@
     "@babel/preset-env": "^7.7.4",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
     "babel-preset-env": "^1.7.0",
     "copy-webpack-plugin": "^5.0.5",
     "eslint": "^6.7.2",

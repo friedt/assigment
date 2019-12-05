@@ -56,7 +56,6 @@ const showHideError = (state) => {
 // show the filtered data and inject in html container
 
 const showFlightData = (filteredData) => {
-    let flights = [];
     let html = '';
 
     if (filteredData.length === 0) {
@@ -68,7 +67,8 @@ const showFlightData = (filteredData) => {
     }
 
     for (let item of filteredData) {
-        html = `<div class="rw-card">
+
+        html += `<div class="rw-card">
                         <div class="rw-card__body">
                         <h3 class="rw-card__header">${item.airport}</h3>
                         <dl class="rw-card__content">
@@ -81,10 +81,9 @@ const showFlightData = (filteredData) => {
                          </dl>
                       </div>
                      </div>`;
-        flights.push(html);
     }
     // inject into the DOM once
-    dataOutputElement.innerHTML = flights;
+    dataOutputElement.innerHTML = html;
 };
 
 /*
