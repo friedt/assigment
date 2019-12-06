@@ -121,8 +121,7 @@ const filterFlightInformation = (value) => {
     });
 };
 
-
-// bind the text input element and create an event handler oninput
+// bind to the form element and create an event handler oninput and onsubmit
 
 const bindFlightInformationForm = (form) => {
     const events = ['input', 'submit'];
