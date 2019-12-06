@@ -92,7 +92,7 @@ const showFlightData = (filteredData) => {
 * */
 
 const setInputFlightInformation = (e) => {
-
+    // prevent the form from being submitted
     if (e.type === 'submit'){
         e.preventDefault();
         return;
@@ -100,7 +100,7 @@ const setInputFlightInformation = (e) => {
     if (e.target.classList.contains('js-flightinformation-input')){
         let target = e.target;
         let value = target.value.toLowerCase();
-        let inputLength = target.value.length;
+        let inputLength = value.length;
         if (inputLength >= 3) {
 
             let filteredData = filterFlightInformation(value);
