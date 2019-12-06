@@ -36,10 +36,11 @@ Webpack Plugins used:
 
 ### Source Folder Structure
 
-* sass/  folder which containes all the scss files
-* src/ 
+sass/  folder which containes all the scss files
 
-These are the source files that can be changed. It consists of a:
+src/
+
+It consists of a:
 <ul>
 <li>'data' folder which containes the flights.json which is used to display flight information on the API endpoint</li>
 <li>'html' folder which contains the index.html which contains html partials which are bundled by 
