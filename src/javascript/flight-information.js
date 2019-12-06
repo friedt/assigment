@@ -88,17 +88,26 @@ const showFlightData = (filteredData) => {
 
 /*
 * Filter the data after user input
+* prevent the form from being submitted when the 'submit' event is invoked
 * */
 
 const setInputFlightInformation = (e) => {
-    let target = e.target;
-    let value = target.value.toLowerCase();
-    let inputLength = target.value.length;
-    if (inputLength >= 3) {
 
-        let filteredData = filterFlightInformation(value);
-        showFlightData(filteredData);
+    if (e.type === 'submit'){
+        e.preventDefault();
+        return;
     }
+    if (e.target.classList.contains('js-flightinformation-input')){
+        let target = e.target;
+        let value = target.value.toLowerCase();
+        let inputLength = target.value.length;
+        if (inputLength >= 3) {
+
+            let filteredData = filterFlightInformation(value);
+            showFlightData(filteredData);
+        }
+    }
+
 };
 
 // filter the flight information on input against destination(airport) value
@@ -115,29 +124,34 @@ const filterFlightInformation = (value) => {
 
 // bind the text input element and create an event handler oninput
 
-const bindFlightInformationInput = () => {
-    let inputElement = document.querySelector('.js-flightinformation-input');
-    inputElement.addEventListener('input', setInputFlightInformation);
+const bindFlightInformationForm = (form) => {
+    const events = ['input', 'submit'];
+    events.forEach(event => {
+        form.addEventListener(event, setInputFlightInformation);
+    })
+
 };
 
 // initialize the flightInformation module
 
 export const init = () => {
     //bind the html elements
+    const form = document.getElementById('flight-information-form');
     dataOutputElement = document.querySelector('.js-flightinformation-output');
-    errorElement = document.querySelector('.js-attention-message');
+    errorElement = form.querySelector('.js-attention-message');
     resultsFound = document.getElementById('results-found');
 
     // bind the input field
-    bindFlightInformationInput();
+    bindFlightInformationForm(form);
 
     // load the data only once
     getFlightInformation().then(data => {
         storedData = JSON.parse(data.response);
         flightsInfoArray = storedData.flights;
     });
-
 };
+
+
 
 
 
