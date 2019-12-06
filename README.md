@@ -8,17 +8,17 @@
 $ npm install
 $ npm run serve
 $ npm run build
-$ npm run watch
+$ npm run dev
 ```
 
 <ul>
 <li>Run 'npm install' > 
 This will install the dependencies first </li> 
-<li>'npm run serve' will build the project and startup a static server
+<li>'npm run serve' will build the project in development mode and watches the files changed, it creates a 'dist' folder and startup a static server
 which listens to http://localhost:8081/</li>
-<li>'npm run build' will run eslint first and will build the project using Webpack and creates a 'dist' folder with all the built files which is the root folder of localhost</li>
+<li>'npm run build' will run eslint first and will build the project in production mode using Webpack and creates a 'dist' folder with all the built files which is the root folder of localhost</li>
 
-<li>'npm run watch' will watch the project using webpack after changing files </li>
+<li>'npm run dev' will project in development mode </li>
 </ul>
 
 TODO setup unit testing
@@ -26,13 +26,15 @@ TODO setup unit testing
 # Configuration
 
 ### Webpack
-This project uses Webpack as a buildtool which is configured in webpack.config.js. <br>
+This project uses Webpack as a buildtool which is configured in webpack.development.config.js for local development. <br>
+and webpack.production.config.js for production environment.
 There are 3 loaders configured which handle the html, scss and js files.<br>
 To get more information about the configuration options, see: <a href="https://webpack.js.org">https://webpack.js.org</a>
 
 Webpack Plugins used:
 - https://webpack.js.org/plugins/html-webpack-plugin/
 - https://webpack.js.org/plugins/copy-webpack-plugin/
+- https://webpack.js.org/plugins/uglifyjs-webpack-plugin/
 
 ### Source Folder Structure
 
