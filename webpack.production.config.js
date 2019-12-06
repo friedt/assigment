@@ -4,6 +4,7 @@ require("babel-register");
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 // This is main configuration object.
 // Here you write different options and tell Webpack what to do
@@ -18,6 +19,8 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'javascript/bundle.js'
     },
+    // This means that after the initial build, webpack will continue to watch for changes in any of the resolved files.
+    watch: false,
 
     // rules
     module: {
@@ -57,7 +60,19 @@ module.exports = {
     // Depending on mode Webpack will apply different things
     // on final bundle. For now we don't need production's JavaScript
     // minifying and other thing so let's set mode to development
-    mode: 'development',
+    mode: 'production',
+
+    // This plugin uses uglify-js to minify your JavaScript.
+    optimization: {
+        minimizer: [new UglifyJsPlugin({
+            // Compression specific options
+            uglifyOptions: {
+                compress: {
+                    drop_console: true,
+                }
+            },
+        })],
+    },
 
     // plugins
     plugins: [

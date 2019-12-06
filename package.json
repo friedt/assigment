@@ -5,9 +5,9 @@
   "main": "src/index.js",
   "scripts": {
     "test": "jest",
-    "build": "webpack --config webpack.config.js",
-    "watch": "webpack --watch",
-    "serve": "npm run build && http-server dist --port 8081",
+    "build": "npm run eslint && webpack --config webpack.production.config.js --mode=production",
+    "dev": "webpack --config webpack.development.config.js --mode=development",
+    "serve": "http-server dist --port 8081 & npm run dev",
     "eslint": "eslint src/"
   },
   "author": "",
@@ -20,7 +20,6 @@
     "@babel/preset-env": "^7.7.4",
     "babel-loader": "^8.0.6",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-plugin-transform-remove-console": "^6.9.4",
     "babel-preset-env": "^1.7.0",
     "copy-webpack-plugin": "^5.0.5",
     "eslint": "^6.7.2",
@@ -31,6 +30,7 @@
     "jest": "^23.6.0",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.10"
   },
