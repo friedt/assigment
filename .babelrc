@@ -1,8 +1,7 @@
 {
 
   "plugins": [
-    "@babel/plugin-transform-runtime",
-    "transform-remove-console"
+    "@babel/plugin-transform-runtime"
   ],
   "presets": [
     [
